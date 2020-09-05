@@ -10,7 +10,7 @@
 
 # Run Server
 
-    php -S localhost:8000 -t public
+    php artisan serve
 
 
 ## Get Rooms Near Me
