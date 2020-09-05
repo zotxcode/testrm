@@ -1,0 +1,97 @@
+# TestRoom!
+
+
+# Run
+
+    php artisan migrate:refresh --seed
+    php artisan laravolt:indonesia:seed
+    php artisan passport:client --personal
+
+
+# Run Server
+
+    php -S localhost:8000 -t public
+
+
+## Get Rooms Near Me
+### url
+GET http://localhost:8000/api/findRoomNearMe?lat=-6.206964&lon=106.809334
+### example
+    curl -XGET 'http://localhost:8000/api/findRoomNearMe?lat=-6.206964&lon=106.809334'
+
+## Register
+### url
+POST http://localhost:8000/api/register
+### example
+    
+
+
+    curl -H "Content-type: application/json" -d '{"name": "Jhon Wick","email": "jhon12@aa.com","password": "12345678","c_password": "12345678"}' 'http://localhost:8000/api/register'
+
+
+
+
+
+
+## Login
+### url
+POST http://localhost:8000/api/login
+### example
+
+    curl -H "Content-type: application/json" -d '{
+    "email": "admin@admin.com",
+    "password": "12345678"}' 'http://localhost:8000/api/login'
+
+
+
+## Show User
+
+### url
+GET http://localhost:8000/api/user
+### example
+
+    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" -d '{
+    "email": "admin@admin.com",
+    "password": "12345678"}' 'http://localhost:8000/api/user'
+
+
+## Change User Role
+
+### url
+POST http://localhost:8000/api/user/change_role
+### example
+
+    curlcurl -XPOST -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" -d '{
+    "role_id": 4}' 'http://localhost:8000/api/user/change_role'
+
+    
+## Delete User
+
+### url
+DELETE http://localhost:8000/api/user
+### example
+
+    curl -XDELETE -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" 'http://localhost:8000/api/user'
+
+## Access Finance
+### URL
+GET http://localhost:8000/api/finance
+### Example
+
+    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" 'http://localhost:8000/api/finance'
+
+
+## Access Article
+### URL
+GET http://localhost:8000/api/article
+### Example
+
+    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" 'http://localhost:8000/api/article'
+
+
+## Access Building
+### URL
+GET http://localhost:8000/api/building
+### Example
+
+    curl -XGET -H 'Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNTcyZmQ2MDg1NmE3ZmUwOGQyMjcxNWEzOGZlZWQwYmY1ZjUzMTczMzY1ZmQ5MGY2OTY1Y2Q5MDkzMWQyZWZlZmExZDQxY2FiZThkM2JlODQiLCJpYXQiOjE1OTkyOTQ5NjcsIm5iZiI6MTU5OTI5NDk2NywiZXhwIjoxNjMwODMwOTY3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.o_6MhnwnabEwFjuUHxzHy3UWLn9dGJmuBCWrLxqr3CNyB5ObpFF4PcTIAc69W1wG_EC4u73h0GyjOr4hE_mYhUmqsFmCXzIFXN0l1-TiMPynT-MG1lqIkFVJJUAA-nFixVhQEDRa3U6dYqHYavogB6mWZ1nL4rOmaDYBAzhl3HVO1ehO1TRfvKFe34KyRCHhxTZk8lNJQVe775GaVI2aOOwb-k14cItBuomEBEY6lTz76ylMznHLlmkx7TlQF24wSbmLeJ2iRlxG7FM5mssiMjTtufj160oh-ZEEwcBqeWowxRA3wcaiuYg7my440HupG3oardrOZhiaA2PKNYktnmzImkVrZLNYjVz0p_DahiSJZ3K4xlUMmVhygQGiWUhrsJOzni3TGzXnmv42KxivS1Ym5d4BfTbghj1K21gpOHQSsq1rpZ-4-7stjio1oPZFkVoNh1Tlc0JKPsl2Ygksg1fXe3EI4NHgmo1-Q0ARLC_CwzPWPsFe6Eh55tSY_A0c_OLOQyUC-WMn3G-EPtTL6CHaE5JKAHUmKscHlfgqZ29wivvxO_v757P20q3BCmnzndCfbeOxVEowg8FkoYC2jfrOpbQw7bN4kKbSwo0g-CQaDW_m5r4hRxL5CTft0ZfD9YAFZlAZzJ1-GTvVuycrhbjkgUqv0kHkbIbihtEQ5YM' -H "Content-type: application/json" 'http://localhost:8000/api/building'
